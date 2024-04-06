@@ -2,6 +2,7 @@ package MainMenu;
 
 import User.Customer;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class CustomerMenu {
@@ -24,13 +25,26 @@ public class CustomerMenu {
                     MakeOrder.makeOrder();
                     break;
                 case 2:
-                    Invoice.viewInvoice();
+                    viewInvoices();
                     break;
                 case 3:
                     return;
                 default:
                     System.out.println("Invalid choice. Please select again.");
                     break;
+            }
+        }
+    }
+
+    private static void viewInvoices() {
+        ArrayList<Invoice> invoices = Invoice.getInvoiceList();
+        if (invoices.isEmpty()) {
+            System.out.println("No invoices available. Please make an order first.");
+        } else {
+            System.out.println("\nAvailable Invoices:\n");
+            for (int i = 0; i < invoices.size(); i++) {
+                System.out.println("\nInvoice " + (i + 1) + ":");
+                invoices.get(i).generateInvoice();
             }
         }
     }

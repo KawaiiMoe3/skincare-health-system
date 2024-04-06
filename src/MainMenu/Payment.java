@@ -5,10 +5,13 @@ import java.util.Scanner;
 public class Payment {
     private static Scanner scanner = new Scanner(System.in);
 
-    public static void makePayment(double totalPrice) {
+    public static PaymentDetails makePayment(double totalPrice) {
         System.out.println("------------------------------------------");
         System.out.println("\t\t\tPayment");
         System.out.println("------------------------------------------");
+        double amountPaid = 0; // Initialize the amount paid
+        String paymentMethod = "";
+
         while (true) {
             System.out.println("\nSelect payment method:");
             System.out.println("1. Cash");
@@ -16,8 +19,20 @@ public class Payment {
             System.out.print("\nEnter your choice: ");
             int choice = scanner.nextInt();
 
+            switch (choice) {
+                case 1:
+                    paymentMethod = "Cash";
+                    break;
+                case 2:
+                    paymentMethod = "Credit/Debit Card";
+                    break;
+                default:
+                    System.out.println("Invalid choice. Please try again.");
+                    continue;
+            }
+
             System.out.print("Enter amount to pay: ");
-            double amountPaid = scanner.nextDouble();
+            amountPaid = scanner.nextDouble();
 
             if (amountPaid < totalPrice) {
                 System.out.printf("\nTotal amount that you need to pay is RM %.2f%n", totalPrice);
@@ -32,6 +47,25 @@ public class Payment {
                 System.out.println("\nPayment Successfully, Thank you!");
                 break;
             }
+        }
+        return new PaymentDetails(paymentMethod, amountPaid);
+    }
+
+    public static class PaymentDetails {
+        private String paymentMethod;
+        private double amountPaid;
+
+        public PaymentDetails(String paymentMethod, double amountPaid) {
+            this.paymentMethod = paymentMethod;
+            this.amountPaid = amountPaid;
+        }
+
+        public String getPaymentMethod() {
+            return paymentMethod;
+        }
+
+        public double getAmountPaid() {
+            return amountPaid;
         }
     }
 }
