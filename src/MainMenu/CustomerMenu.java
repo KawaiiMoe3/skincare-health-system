@@ -28,7 +28,8 @@ public class CustomerMenu {
                     viewInvoices();
                     break;
                 case 3:
-                    return;
+                    System.out.println("Logging out...");
+                    return; // Return to main menu
                 default:
                     System.out.println("Invalid choice. Please select again.");
                     break;

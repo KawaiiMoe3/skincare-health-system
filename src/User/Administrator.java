@@ -1,32 +1,27 @@
 package User;
 
 import java.util.Scanner;
+import MainMenu.AdministratorMenu;
 
 public class Administrator {
-    private static final String ADMIN_ID = "ad001";
-    private static final String USERNAME = "admin";
-    private static final String PASSWORD = "1234";
-    private static final String EMAIL = "admin@gmail.com";
+    private static final String ADMIN_USERNAME = "admin";
+    private static final String ADMIN_PASSWORD = "admin";
 
     public void adminLogin(Scanner scanner) {
         System.out.println("------------------------------------------");
         System.out.println("\t\t\tAdministrator Login");
         System.out.println("------------------------------------------");
 
-        boolean loggedIn = false;
-        while (!loggedIn){
+        while (true) {
             System.out.print("Enter username: ");
             String enteredUsername = scanner.nextLine();
 
             System.out.print("Enter password: ");
             String enteredPassword = scanner.nextLine();
 
-            if (USERNAME.equals(enteredUsername) && PASSWORD.equals(enteredPassword)) {
-                System.out.println("------------------------------------------");
-                System.out.println("\t\t\tWelcome " + USERNAME);
-                System.out.println("------------------------------------------");
-                System.out.println("What are you going to do today?\n");
-                loggedIn = true;
+            if (ADMIN_USERNAME.equals(enteredUsername) && ADMIN_PASSWORD.equals(enteredPassword)) {
+                System.out.println("\nLogin successful!");
+                break; // Break out of the login loop
             } else {
                 System.out.println("\nInvalid username or password. Please try again.");
             }
