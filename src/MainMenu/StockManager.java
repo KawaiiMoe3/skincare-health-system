@@ -2,6 +2,8 @@ package MainMenu;
 
 import Product.CreateProduct;
 import Product.ViewAllProducts;
+import Product.UpdateProduct;
+import Product.DeleteProduct;
 import java.util.Scanner;
 
 public class StockManager {
@@ -13,7 +15,8 @@ public class StockManager {
             System.out.println("1. Create Product");
             System.out.println("2. Update Product");
             System.out.println("3. View All Products");
-            System.out.println("4. Go Back");
+            System.out.println("4. Delete Product");
+            System.out.println("5. Go Back");
             System.out.println("------------------------------------------");
 
             System.out.print("Enter your option (1-4): ");
@@ -26,13 +29,15 @@ public class StockManager {
                         CreateProduct.addProduct(scanner);
                         break;
                     case 2:
-                        System.out.println("Selected option: Update Product");
-                        // Call your update product method here
+                        UpdateProduct.updateProduct(scanner);
                         break;
                     case 3:
                         ViewAllProducts.viewAllProducts();
                         break;
                     case 4:
+                        DeleteProduct.deleteProduct(scanner);
+                        break;
+                    case 5:
                         System.out.println("Going back...");
                         return; // Return to AdministratorMenu
                     default:
