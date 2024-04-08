@@ -14,7 +14,37 @@ public class Product {
         this.unitPrice = unitPrice;
     }
 
-    // Getters and setters (not shown for brevity)
+    // Getter and setter methods for id
+    public String getId() {
+        return id;
+    }
+
+    // Getter and setter methods for name
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    // Getter and setter methods for quantity
+    public int getQuantity() {
+        return quantity;
+    }
+
+    public void setQuantity(int quantity) {
+        this.quantity = quantity;
+    }
+
+    // Getter and setter methods for unitPrice
+    public double getUnitPrice() {
+        return unitPrice;
+    }
+
+    public void setUnitPrice(double unitPrice) {
+        this.unitPrice = unitPrice;
+    }
 
     @Override
     public String toString() {

@@ -2,6 +2,7 @@ package MainMenu;
 
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import Report.ReportGenerator;
 
 public class AdministratorMenu {
     public static void administratorMenu(Scanner scanner) {
@@ -25,8 +26,7 @@ public class AdministratorMenu {
                         StockManager.stockManagerMenu(scanner);
                         break;
                     case 2:
-                        System.out.println("Selected option: Option 2");
-                        // Call your option 2 method here
+                        ReportGenerator.generateReports(scanner);
                         break;
                     case 3:
                         System.out.println("Logging out...");
