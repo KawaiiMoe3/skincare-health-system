@@ -22,7 +22,7 @@ public class ReportGenerator {
                     StockReport.generateStockReport();
                     break;
                 case 2:
-                    generateSalesReport();
+                    SalesReport.generateSalesReport();
                     break;
                 case 3:
                     System.out.println("Going back...");
@@ -32,10 +32,5 @@ public class ReportGenerator {
                     break;
             }
         }
-    }
-
-    private static void generateSalesReport() {
-        // Implement logic to generate sales report
-        System.out.println("Sales report generated.");
     }
 }

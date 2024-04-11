@@ -22,7 +22,7 @@ public class CustomerMenu {
             //Call the corresponding function based on choice
             switch (choice){
                 case 1:
-                    MakeOrder.makeOrder();
+                    MakeOrder.makeOrder(customer.getUsername(), customer.getId());
                     break;
                 case 2:
                     viewInvoices();
