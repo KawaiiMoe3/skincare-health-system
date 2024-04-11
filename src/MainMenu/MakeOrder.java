@@ -21,7 +21,7 @@ public class MakeOrder {
     };
     private static final int[] QUANTITIES = {1000, 550, 750, 600, 650, 500, 300, 450, 500, 700};
     private static Scanner scanner = new Scanner(System.in);
-    public static void makeOrder(){
+    public static void makeOrder(String customerUsername, String customerId){
         System.out.println("------------------------------------------");
         System.out.println("\t\t\tMake Order");
         System.out.println("------------------------------------------");
@@ -80,7 +80,7 @@ public class MakeOrder {
                 Payment.PaymentDetails paymentDetails = Payment.makePayment(totalPrice);
                 String paymentMethod = paymentDetails.getPaymentMethod();
                 double amountPaid = paymentDetails.getAmountPaid();
-                Invoice invoice = new Invoice(items, paymentMethod, amountPaid, totalPrice, LocalDateTime.now());
+                Invoice invoice = new Invoice(items, paymentMethod, amountPaid, totalPrice, LocalDateTime.now(), customerUsername, customerId);
                 // Add the invoice to the list
                 Invoice.addInvoice(invoice);
             } else {

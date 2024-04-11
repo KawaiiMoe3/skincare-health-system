@@ -39,6 +39,10 @@ public class Customer {
         return this.username;
     }
 
+    public String getId(){
+        return String.valueOf(this.nextCustomerId);
+    }
+
     private void getCurrentDate() {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");

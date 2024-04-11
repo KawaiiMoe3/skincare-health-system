@@ -11,13 +11,17 @@ public class Invoice {
     private double paidAmount;
     private double totalPrice;
     private LocalDateTime dateTime;
+    private String customerUsername;
+    private String customerId;
 
-    public Invoice(ArrayList<InvoiceItem> items, String paymentMethod, double paidAmount, double totalPrice, LocalDateTime dateTime) {
+    public Invoice(ArrayList<InvoiceItem> items, String paymentMethod, double paidAmount, double totalPrice, LocalDateTime dateTime, String customerUsername, String customerId) {
         this.items = items;
         this.paymentMethod = paymentMethod;
         this.paidAmount = paidAmount;
         this.totalPrice = totalPrice;
         this.dateTime = dateTime;
+        this.customerUsername = customerUsername;
+        this.customerId = customerId;
     }
 
     // Method to add an invoice to the list
@@ -30,6 +34,15 @@ public class Invoice {
         return invoiceList;
     }
 
+    // Getter method for customer username
+    public String getCustomerUsername() {
+        return customerUsername;
+    }
+
+    // Getter method for customer ID
+    public String getCustomerId() {
+        return customerId;
+    }
 
     public void generateInvoice() {
 
@@ -37,9 +50,16 @@ public class Invoice {
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         // Format the LocalDateTime object using the formatter
         String formattedDateTime = dateTime.format(formatter);
+        // Format the customer ID
+        String formattedCustomerId = "cus" + String.format("%03d", Integer.parseInt(customerId));
+
 
         System.out.println("------------------------------------------");
         System.out.println("\t\t\tInvoice");
+        System.out.println("------------------------------------------");
+        System.out.println("Customer ID: " + formattedCustomerId);
+        System.out.println("Customer Username: " + customerUsername);
+        System.out.println("Date & Time: " + formattedDateTime);
         System.out.println("------------------------------------------");
         System.out.println("Details:");
         System.out.printf("Total Price: RM %.2f" , totalPrice);
@@ -47,7 +67,7 @@ public class Invoice {
         System.out.println("Payment Method: " + paymentMethod);
         System.out.printf("Paid Amount: RM %.2f" , paidAmount);
         System.out.println("\n");
-        System.out.println("Date & Time: " + formattedDateTime);
+        System.out.println("------------------------------------------");
 
         for (InvoiceItem item : items) {
             System.out.println(item);
