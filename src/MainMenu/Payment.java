@@ -34,6 +34,7 @@ public class Payment {
             System.out.print("Enter amount to pay: ");
             amountPaid = scanner.nextDouble();
 
+            // Check the required amount of payment
             if (amountPaid < totalPrice) {
                 System.out.printf("\nTotal amount that you need to pay is RM %.2f%n", totalPrice);
             } else if (amountPaid == totalPrice) {
@@ -55,15 +56,18 @@ public class Payment {
         private String paymentMethod;
         private double amountPaid;
 
+        // PaymentDetails constructor
         public PaymentDetails(String paymentMethod, double amountPaid) {
             this.paymentMethod = paymentMethod;
             this.amountPaid = amountPaid;
         }
 
+        // Method to get payment method
         public String getPaymentMethod() {
             return paymentMethod;
         }
 
+        // Method to get amount paid
         public double getAmountPaid() {
             return amountPaid;
         }

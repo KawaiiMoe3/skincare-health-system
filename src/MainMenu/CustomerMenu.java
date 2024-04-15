@@ -37,6 +37,7 @@ public class CustomerMenu {
         }
     }
 
+    //Get invoices to review
     private static void viewInvoices() {
         ArrayList<Invoice> invoices = Invoice.getInvoiceList();
         if (invoices.isEmpty()) {

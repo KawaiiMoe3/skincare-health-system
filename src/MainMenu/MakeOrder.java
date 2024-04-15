@@ -84,7 +84,8 @@ public class MakeOrder {
                 // Add the invoice to the list
                 Invoice.addInvoice(invoice);
             } else {
-                System.out.println("Thank you for shopping with us!");
+                System.out.println("Order canceled. Thank you for considering shopping with us!");
+                return;
             }
 
             // Ask if the customer wants to make another order
@@ -96,6 +97,7 @@ public class MakeOrder {
         }
     }
 
+    // Method to display the product list if Make Order option selected
     private static void displayProductList() {
         System.out.println("\nSkincare and Health Product List:");
         for (int i = 0; i < PRODUCTS.length; i++) {
