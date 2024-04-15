@@ -18,14 +18,14 @@ For better experienced, we suggest to execute this Java project in IntelliJ IDEA
 
 #### IntelliJ IDEA (Suggested)
 
- ##### 1. Launch IntelliJ IDEA.
- ##### 2. File -> Project From Existing Source / Open
+ 1. Launch IntelliJ IDEA.
+ 2. File -> Project From Existing Source / Open
 
 
 #### Eclipse
 
-##### 1. Launch Eclipse.
-##### 2. File -> Import -> Existing Projects into Workspace
+1. Launch Eclipse.
+2. File -> Import -> Existing Projects into Workspace
 
 
 
