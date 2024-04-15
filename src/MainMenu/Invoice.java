@@ -14,6 +14,7 @@ public class Invoice {
     private String customerUsername;
     private String customerId;
 
+    //Invoice constructor
     public Invoice(ArrayList<InvoiceItem> items, String paymentMethod, double paidAmount, double totalPrice, LocalDateTime dateTime, String customerUsername, String customerId) {
         this.items = items;
         this.paymentMethod = paymentMethod;
@@ -42,6 +43,20 @@ public class Invoice {
     // Getter method for customer ID
     public String getCustomerId() {
         return customerId;
+    }
+
+    // Method to get the product items
+    public ArrayList<InvoiceItem> getItems() {
+        return items;
+    }
+
+    // Method to calculate the total sales of the invoice
+    public double getTotalSales() {
+        double total = 0.0;
+        for (InvoiceItem item : items) {
+            total += item.getTotalPrice();
+        }
+        return total;
     }
 
     public void generateInvoice() {
@@ -83,6 +98,7 @@ public class Invoice {
         }
     }
 
+    // Invoice details
     public static class InvoiceItem {
         private String productName;
         private int quantity;
@@ -98,10 +114,28 @@ public class Invoice {
 
         @Override
         public String toString() {
-            return "Product: " + productName +
-                    ", Quantity: " + quantity +
-                    ", Unit Price: RM " + unitPrice +
-                    ", Total Price: RM " + totalPrice;
+            return String.format("Product: %s, Quantity: %d, Unit Price: RM %.2f, Total Price: RM %.2f",
+                    productName, quantity, unitPrice, totalPrice);
+        }
+
+        // Method to get product name
+        public String getProductName() {
+            return productName;
+        }
+
+        // Method to get quantity sold
+        public int getQuantity() {
+            return quantity;
+        }
+
+        // Method to get unit price of product
+        public double getUnitPrice() {
+            return unitPrice;
+        }
+
+        // Method to get total price by quantity * quantity product sold
+        public double getTotalPrice() {
+            return totalPrice;
         }
     }
 }

@@ -35,14 +35,17 @@ public class Customer {
         System.out.println("------------------------------------------");
     }
 
+    // Method to get customer username
     public String getUsername() {
         return this.username;
     }
 
+    // Method to get customer id
     public String getId(){
         return String.valueOf(this.nextCustomerId);
     }
 
+    // Method to get current date
     private void getCurrentDate() {
         LocalDate currentDate = LocalDate.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
